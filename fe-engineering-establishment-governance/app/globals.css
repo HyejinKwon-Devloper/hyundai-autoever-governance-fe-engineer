@@ -1,19 +1,18 @@
+@charset "UTF-8";
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --midnight-900: #05141f;
+  --gray-300: #b4b9bc;
 }
 
 html,
 body {
   max-width: 100vw;
+  min-width: 360px;
+  height: 100%;
   overflow-x: hidden;
+  margin: 0;
 }
 
 body {
@@ -35,8 +34,44 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+a {
+  color: var(--midnight-900);
+  text-decoration: none;
+  cursor: pointer;
+}
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+em,
+i,
+address {
+  font-style: normal;
+}
+input::-webkit-input-placeholder {
+  font-weight: 400;
+  color: var(--gray-300);
+  opacity: 1;
+}
+input::-moz-placeholder {
+  font-weight: 400;
+  color: var(--gray-300);
+  opacity: 1;
 }
