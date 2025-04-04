@@ -19,10 +19,10 @@
     justify-content: flex-end;
     width: 100%;
   }
-  .navlist ul {
+  .navlist nav ul {
     display: flex;
   }
-  .appbar .navlist > ul > li > a {
+  .navlist nav > ul > li > a {
     padding: 0 4px;
     margin: 0 16px;
     font-size: 18px;
