@@ -1,0 +1,12 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: var(--px-lg);
+}
+
+.tabs > button {
+  flex: 1;
+  min-height: var(--btn-xlg2);
+  font-size: var(--tab-fsize);
+  border: 1px solid var(--midnight-100);
+}
