@@ -1,17 +1,5 @@
-import styles from '@/app/page.module.css';
+import FAQ from '@/app/FAQ/page';
 
 export default function Home() {
-  return (
-    <div className={styles.content}>
-      <main className={styles.main}>
-        <ol>
-          <li>
-            Get started by editing <code>app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-      </main>
-      <footer className={styles.footer}></footer>
-    </div>
-  );
+  return <FAQ />;
 }
