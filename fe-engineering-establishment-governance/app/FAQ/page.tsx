@@ -1,6 +1,7 @@
 import PageDescription from '@/app/component/PageDescription';
 import Tab from '@/app/component/tab/Tab';
 import styles from '@/app/FAQ/page.module.css';
+import Search from '@/app/component/search/Search';
 
 export default function FAQ() {
   return (
@@ -9,8 +10,7 @@ export default function FAQ() {
         <PageDescription />
         <div>
           <Tab>
-            {/* <input>
-            </input> */}
+            <Search />
             {/* <Filter /> */}
             {/* <List /> */}
           </Tab>

@@ -3,6 +3,7 @@
   --background: #ffffff;
   --foreground: #171717;
 
+  --gray-10: #f8f8f8;
   --gray-300: #b4b9bc;
   --midnight-100: #cdd0d2;
   --midnight-900: #05141f;
@@ -19,6 +20,8 @@
     --h1-fsize: 48px;
     --h1-fsize-sm: 20px;
     --header-height: 80px;
+    --ic-sm: 24px;
+    --ic-md: 32px;
     --line-height-md: 1.6;
     --px-md: 24px;
     --px-lg: 48px;
@@ -40,6 +43,8 @@
     --h1-fsize: 40px;
     --h1-fsize-sm: 18px;
     --header-height: 80px;
+    --ic-sm: 24px;
+    --ic-md: 32px;
     --px-md: 20px;
     --px-lg: 40px;
     --px-xlg: 64px;
@@ -60,6 +65,8 @@
     --h1-fsize: 32px;
     --h1-fsize-sm: 16px;
     --header-height: 56px;
+    --ic-sm: 24px;
+    --ic-md: 28px;
     --px-md: 16px;
     --px-lg: 32px;
     --px-xlg: 56px;
@@ -73,13 +80,15 @@
   :root {
     font-size: 14px;
     --bottom-padding: 80px;
-    --btn-md: 48px;
-    --btn-xlg: 56px;
-    --btn-xlg2: 56px;
+    --btn-md: 36px;
+    --btn-xlg: 48px;
+    --btn-xlg2: 40px;
     --h1-height: 124px;
     --h1-fsize: 24px;
     --h1-fsize-sm: 14px;
     --header-height: 56px;
+    --ic-sm: 20px;
+    --ic-md: 24px;
     --px-md: 16px;
     --px-lg: 24px;
     --px-xlg: 32px;
