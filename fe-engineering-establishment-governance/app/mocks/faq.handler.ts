@@ -48,5 +48,25 @@ const handlers = [
       });
     },
   ),
+  http.get(
+    `${process.env.NEXT_BASE_URL}/api/faq`,
+    ({ request, params, cookies }) => {
+      console.log('faq');
+      return HttpResponse.json([
+        {
+          categoryID: 'PRODUCT',
+          name: '서비스 상품',
+        },
+        {
+          categoryID: 'COUNSELING',
+          name: '도입 상담',
+        },
+        {
+          categoryID: 'CONTRACT',
+          name: '계약',
+        },
+      ]);
+    },
+  ),
 ];
 export default handlers;

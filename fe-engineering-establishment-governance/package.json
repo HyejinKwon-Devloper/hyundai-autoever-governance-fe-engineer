@@ -29,7 +29,7 @@
   },
   "msw": {
     "workerDirectory": [
-      "public"
+      "./public"
     ]
   }
 }

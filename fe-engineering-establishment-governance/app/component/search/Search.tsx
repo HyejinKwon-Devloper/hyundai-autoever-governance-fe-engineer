@@ -6,7 +6,7 @@ import { ChangeEvent, useActionState, useState } from 'react';
 
 import Styles from '@/app/component/search/search.module.css';
 
-import { searchFAQ } from '@/app/api/faq/actions';
+import { searchFAQ } from '@/app/api/faq/route';
 
 interface ISearchFAQ {
   message: string;

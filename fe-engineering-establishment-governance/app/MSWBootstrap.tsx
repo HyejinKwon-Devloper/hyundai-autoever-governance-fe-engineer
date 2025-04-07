@@ -13,7 +13,7 @@ export default function MSWBootstrap({
     if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
       import('@/app/mocks/browser').then(({ worker }) => {
         worker.start({ onUnhandledRequest: 'bypass' }).then(() => {
-          console.log('🧪 MSW started');
+          console.log('MSW ready');
           setReady(true);
         });
       });
