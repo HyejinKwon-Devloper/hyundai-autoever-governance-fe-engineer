@@ -26,6 +26,7 @@
     --px-md: 24px;
     --px-lg: 48px;
     --px-xlg: 76px;
+    --space-sm: 20px;
     --side-padding: 48px;
     --tab-fsize: 20px;
     --footer-height: 176px;
@@ -48,6 +49,7 @@
     --px-md: 20px;
     --px-lg: 40px;
     --px-xlg: 64px;
+    --space-sm: 20px;
     --side-padding: 48px;
     --tab-fsize: 20px;
     --footer-height: 176px;
@@ -70,6 +72,7 @@
     --px-md: 16px;
     --px-lg: 32px;
     --px-xlg: 56px;
+    --space-sm: 14px;
     --side-padding: 48px;
     --tab-fsize: var(--font-size);
     --footer-height: 296px;
@@ -92,6 +95,7 @@
     --px-md: 16px;
     --px-lg: 24px;
     --px-xlg: 32px;
+    --space-sm: 12px;
     --side-padding: 24px;
     --tab-fsize: var(--font-size);
     --footer-height: 284px;

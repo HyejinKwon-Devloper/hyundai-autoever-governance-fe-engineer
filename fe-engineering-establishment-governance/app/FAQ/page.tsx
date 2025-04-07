@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import PageDescription from '@/app/component/PageDescription';
 import Tab from '@/app/component/tab/Tab';
 import styles from '@/app/FAQ/page.module.css';
 import Search from '@/app/component/search/Search';
+import Filter from '@/app/component/filter/Filter';
 
 export default function FAQ() {
   return (
@@ -11,7 +13,7 @@ export default function FAQ() {
         <div>
           <Tab>
             <Search />
-            {/* <Filter /> */}
+            <Filter category={'CONSULT'} />
             {/* <List /> */}
           </Tab>
         </div>
