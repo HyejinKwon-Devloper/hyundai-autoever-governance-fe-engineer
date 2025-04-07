@@ -32,5 +32,12 @@ export default function PageDescription() {
           <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em>
         </h1>
       );
+    default:
+      return (
+        <h1>
+          자주 묻는 질문
+          <em>궁금하신 내용을 빠르게 찾아보세요.</em>
+        </h1>
+      );
   }
 }
