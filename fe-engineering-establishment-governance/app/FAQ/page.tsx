@@ -18,12 +18,17 @@ async function FAQList() {
 }
 export default async function FAQ() {
   const faqList = await FAQList();
+  
+  const tabList = [
+    { id: 'using', name: '서비스 이용' },
+    { id: 'introduce', name: '서비스 도입' },
+  ];
   return (
     <div className={styles.content}>
       <main className={styles.main}>
         <PageDescription />
         <div>
-          <Tab>
+          <Tab tabList={tabList}>
             <Search />
             <Filter category={'CONSULT'} />
             <List list={faqList} />
