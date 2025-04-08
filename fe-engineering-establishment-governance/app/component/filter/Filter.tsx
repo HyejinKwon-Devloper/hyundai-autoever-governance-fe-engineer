@@ -16,7 +16,8 @@ export default function Filter(props: { category: string }) {
   useEffect(() => {
     async function fetchCategory() {
       const data = await categories(category);
-      setCategories(data);
+      const result = [{ categoryID: '', name: '전체' }, ...data];
+      setCategories(result);
     }
     fetchCategory();
   }, [category]);
@@ -28,18 +29,6 @@ export default function Filter(props: { category: string }) {
   return (
     <div className={Styles.filter}>
       <Suspense fallback={<p>Loading categories...</p>}>
-        <div key="">
-          <label onClick={() => handleCheckedCategory('')}>
-            <input
-              type="radio"
-              name="category"
-              value={''}
-              checked={checked === ''}
-              onChange={() => handleCheckedCategory('')}
-            />
-            <i>전체</i>
-          </label>
-        </div>
         {categoriesOfTab?.map((category) => {
           return (
             <div key={category.categoryID}>
