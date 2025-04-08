@@ -1,0 +1,35 @@
+.active {
+  color: #fff;
+  background-color: var(--midnight-900);
+  border-color: var(--midnight-900);
+  font-weight: 600;
+}
+
+.xxlg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-xxlg);
+  min-height: var(--btn-xxlg);
+  padding: 0 1.4em;
+  font-size: var(--btn-xxlg-size);
+  font-weight: 600;
+}
+.xxlg > img {
+  width: var(--ic-lg);
+  height: var(--ic-lg);
+  margin-right: 8px;
+}
+.xxlg > span {
+  line-height: var(--line-height-sm);
+}
+.xxlg > span > em {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+.tertiary {
+  background-color: #fff;
+  border: 1px solid var(--midnight-900);
+}
