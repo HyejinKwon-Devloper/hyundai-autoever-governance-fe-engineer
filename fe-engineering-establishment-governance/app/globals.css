@@ -8,7 +8,9 @@
   --gray-10: #f8f8f8;
   --gray-100: #e6e8e9;
   --gray-300: #b4b9bc;
+  --gray-400: #82898f;
   --gray-500: #697278;
+  --max-width: 1660px;
   --midnight-100: #cdd0d2;
   --midnight-900: #05141f;
   --line-height-sm: 1.4;
@@ -162,6 +164,26 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+footer {
+  position: relative;
+  padding: 0 var(--side-padding);
+  color: var(--gray-400);
+  background-color: var(--midnight-900);
+}
+@media (max-width: 743px) {
+  footer {
+    --font-md: 12px;
+    --font-lg: 14px;
+    --line-height: 22px;
+  }
+}
+@media (min-width: 744px) {
+  footer {
+    --font-md: 14px;
+    --font-lg: 16px;
+    --line-height: 24px;
+  }
+}
 * {
   box-sizing: border-box;
   padding: 0;

@@ -1,6 +1,6 @@
 import PageDescription from '@/app/component/PageDescription';
 import Tab from '@/app/component/tab/Tab';
-import styles from '@/app/FAQ/page.module.css';
+
 import Search from '@/app/component/search/Search';
 import Filter from '@/app/component/filter/Filter';
 import List from '@/app/component/list/List';
@@ -9,6 +9,8 @@ import ProcessInfo from '@/app/component/bottom/process-info';
 import AppInfo from '@/app/component/bottom/app-info';
 
 import { searchFAQ } from '@/app/api/faq/route';
+
+import styles from '@/app/FAQ/page.module.css';
 
 async function FAQList() {
   const data = await searchFAQ('');
@@ -31,7 +33,6 @@ export default async function FAQ() {
         <ProcessInfo />
         <AppInfo />
       </main>
-      <footer className={styles.footer}></footer>
     </div>
   );
 }
