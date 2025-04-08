@@ -1,4 +1,4 @@
-import faqHandlers from '@/app/mocks/faq.handler';
+import faqHandlers from '@/app/mocks/faq/faq.handler';
 
 const handlers = [...faqHandlers];
 

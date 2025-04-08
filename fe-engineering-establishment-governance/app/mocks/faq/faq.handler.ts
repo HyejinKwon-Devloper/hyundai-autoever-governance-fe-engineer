@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 const handlers = [
   http.get(
     `${process.env.NEXT_BASE_URL}/faq?limit=10&offset=0&tab=CONSULT`,
-    () => {
+    ({ request, params, cookies }) => {
       return HttpResponse.json({
         pageInfo: {
           totalRecord: 4,
