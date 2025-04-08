@@ -15,9 +15,9 @@ export default function Header() {
   }
   return (
     <>
-      <header>
+      <header className={styles.pinned}>
         <div className={styles.appbar}>
-          <div className="logo">
+          <div className={styles.logo}>
             <Link href={'/'}>
               <Image
                 src="/logo_kiabiz.svg"
@@ -27,21 +27,21 @@ export default function Header() {
               />
             </Link>
           </div>
-          <div className={styles.navlist}>
-            <NavList />
+          <div
+            className={[styles.menu, isNavOpen ? styles.opened : ''].join(' ')}
+          >
+            <NavList handleNavMenu={handleNavMenu} />
           </div>
-          <div className={styles.nav}>
-            <button onClick={handleNavMenu}>
-              <Image src="/ic_menu.svg" alt="nav" width={40} height={40} />
+          <div className={styles.util}>
+            <button
+              onClick={handleNavMenu}
+              className={[styles.nav, isNavOpen ? styles.opened : ''].join(' ')}
+            >
+              메뉴 열기/닫기
             </button>
           </div>
         </div>
       </header>
-      {isNavOpen && (
-        <div className={styles.menu}>
-          <NavList />
-        </div>
-      )}
     </>
   );
 }
