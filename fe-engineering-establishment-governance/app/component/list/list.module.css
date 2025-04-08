@@ -1,0 +1,104 @@
+.list {
+  border-top: 2px solid var(--midnight-900);
+}
+.list > li {
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.list li > h4 > button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding: var(--list-a-padding-v) 0;
+  padding-right: calc(var(--px-xlg) + 1.6em);
+  font-size: var(--list-a-size);
+  line-height: var(--line-height-sm);
+  -webkit-tap-highlight-color: transparent;
+}
+.list li > h4 > button > img {
+  content: '';
+  position: absolute;
+  right: calc((var(--px-xlg) - var(--ic-md)) / 2);
+  width: var(--ic-md);
+  height: var(--ic-md);
+  background-size: auto 100%;
+  transition: transform 0.4s var(--cubic-bezier-primary);
+}
+.list li > h4 > button > em {
+  box-sizing: content-box;
+  width: 8em;
+  padding: 0 var(--list-a-padding-h);
+  color: var(--gray-500);
+}
+.list li > h4 > button > em + em {
+  width: 6em;
+}
+.list li > h4 > button > strong {
+  flex: 1;
+  padding-left: var(--list-a-padding-h);
+  text-align: left;
+}
+.active > h4 > button > img {
+  transform: rotate(180deg);
+}
+
+.active .q {
+  background-color: var(--gray-10);
+}
+
+@media (max-width: 1023px) {
+  .list li > h4 > button {
+    flex-wrap: wrap;
+  }
+  .list li > h4 > button > em {
+    display: flex;
+    align-items: center;
+    width: auto !important;
+    margin: 0 0 4px 0;
+    padding: 0;
+    font-size: calc(1em - 4px);
+    line-height: var(--line-height-md);
+  }
+  .list li > h4 > button > em + em:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin: 0 4px;
+    background-size: auto 100%;
+    transform: rotate(-90deg);
+    opacity: 0.3;
+  }
+  .list li > h4 > button > strong {
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+@media (max-width: 743px) {
+  .list li > h4 > button > em + em:before {
+    width: 16px;
+    height: 16px;
+    margin: 0 2px;
+  }
+}
+
+.list > li:not(.active):not(.ing) > .a {
+  max-height: 0;
+  transition: max-height 0.6s ease-out;
+}
+
+.a {
+  max-height: 500px;
+  transition: max-height 0.6s ease-in;
+  overflow: hidden;
+}
+
+.list li > .a > div {
+  border-top: 1px solid var(--gray-100);
+  font-size: 1rem !important;
+  line-height: var(--line-height-lg);
+  overflow-x: scroll;
+  padding: var(--list-q-padding);
+}

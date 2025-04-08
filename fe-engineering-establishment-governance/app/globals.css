@@ -2,11 +2,16 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-
+  --cubic-bezier-primary: cubic-bezier(1, 0, 0.2, 1);
   --gray-10: #f8f8f8;
+  --gray-100: #e6e8e9;
   --gray-300: #b4b9bc;
+  --gray-500: #697278;
   --midnight-100: #cdd0d2;
   --midnight-900: #05141f;
+  --line-height-sm: 1.4;
+  --line-height-md: 1.6;
+  --line-height-lg: 1.8;
 }
 /* TV 등 */
 @media (min-width: 1440px) {
@@ -22,7 +27,10 @@
     --header-height: 80px;
     --ic-sm: 24px;
     --ic-md: 32px;
-    --line-height-md: 1.6;
+    --list-a-padding-h: 24px;
+    --list-a-padding-v: 24px;
+    --list-a-size: 20px;
+    --list-q-padding: 32px 40px;
     --px-md: 24px;
     --px-lg: 48px;
     --px-xlg: 76px;
@@ -46,6 +54,10 @@
     --header-height: 80px;
     --ic-sm: 24px;
     --ic-md: 32px;
+    --list-a-padding-h: 20px;
+    --list-a-padding-v: 18px;
+    --list-a-size: 18px;
+    --list-q-padding: 24px 32px;
     --px-md: 20px;
     --px-lg: 40px;
     --px-xlg: 64px;
@@ -69,6 +81,10 @@
     --header-height: 56px;
     --ic-sm: 24px;
     --ic-md: 28px;
+    --list-a-padding-h: 24px;
+    --list-a-padding-v: 24px;
+    --list-a-size: 20px;
+    --list-q-padding: 24px 24px;
     --px-md: 16px;
     --px-lg: 32px;
     --px-xlg: 56px;
@@ -92,6 +108,10 @@
     --header-height: 56px;
     --ic-sm: 20px;
     --ic-md: 24px;
+    --list-a-padding-h: 0;
+    --list-a-padding-v: 16px;
+    --list-a-size: 16px;
+    --list-q-padding: 16px 0;
     --px-md: 16px;
     --px-lg: 24px;
     --px-xlg: 32px;
