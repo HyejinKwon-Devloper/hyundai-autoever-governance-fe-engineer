@@ -3,6 +3,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --cubic-bezier-primary: cubic-bezier(1, 0, 0.2, 1);
+  --heading-2: 24px;
+  --heading-2-margin: 64px 0 24px;
   --gray-10: #f8f8f8;
   --gray-100: #e6e8e9;
   --gray-300: #b4b9bc;
@@ -13,6 +15,7 @@
   --line-height-md: 1.6;
   --line-height-lg: 1.8;
 }
+
 /* TV 등 */
 @media (min-width: 1440px) {
   :root {
@@ -21,12 +24,15 @@
     --btn-md: 48px;
     --btn-xlg: 56px;
     --btn-xlg2: 56px;
+    --btn-xxlg: 80px;
+    --btn-xxlg-size: 18px;
     --h1-height: 222px;
     --h1-fsize: 48px;
     --h1-fsize-sm: 20px;
     --header-height: 80px;
     --ic-sm: 24px;
     --ic-md: 32px;
+    --ic-lg: 48px;
     --list-a-padding-h: 24px;
     --list-a-padding-v: 24px;
     --list-a-size: 20px;
@@ -35,6 +41,7 @@
     --px-lg: 48px;
     --px-xlg: 76px;
     --space-sm: 20px;
+    --space-md: 32px;
     --side-padding: 48px;
     --tab-fsize: 20px;
     --footer-height: 176px;
@@ -48,12 +55,15 @@
     --btn-md: 48px;
     --btn-xlg: 56px;
     --btn-xlg2: 56px;
+    --btn-xxlg: 80px;
+    --btn-xxlg-size: 18px;
     --h1-height: 192px;
     --h1-fsize: 40px;
     --h1-fsize-sm: 18px;
     --header-height: 80px;
     --ic-sm: 24px;
     --ic-md: 32px;
+    --ic-lg: 48px;
     --list-a-padding-h: 20px;
     --list-a-padding-v: 18px;
     --list-a-size: 18px;
@@ -62,6 +72,7 @@
     --px-lg: 40px;
     --px-xlg: 64px;
     --space-sm: 20px;
+    --space-md: 24px;
     --side-padding: 48px;
     --tab-fsize: 20px;
     --footer-height: 176px;
@@ -75,12 +86,15 @@
     --btn-md: 44px;
     --btn-xlg: 52px;
     --btn-xlg2: 48px;
+    --btn-xxlg: 80px;
+    --btn-xxlg-size: 16px;
     --h1-height: 160px;
     --h1-fsize: 32px;
     --h1-fsize-sm: 16px;
     --header-height: 56px;
     --ic-sm: 24px;
     --ic-md: 28px;
+    --ic-lg: 32px;
     --list-a-padding-h: 24px;
     --list-a-padding-v: 24px;
     --list-a-size: 20px;
@@ -89,6 +103,7 @@
     --px-lg: 32px;
     --px-xlg: 56px;
     --space-sm: 14px;
+    --space-md: 24px;
     --side-padding: 48px;
     --tab-fsize: var(--font-size);
     --footer-height: 296px;
@@ -102,12 +117,15 @@
     --btn-md: 36px;
     --btn-xlg: 48px;
     --btn-xlg2: 40px;
+    --btn-xxlg: 72px;
+    --btn-xxlg-size: 16px;
     --h1-height: 124px;
     --h1-fsize: 24px;
     --h1-fsize-sm: 14px;
     --header-height: 56px;
     --ic-sm: 20px;
     --ic-md: 24px;
+    --ic-lg: 32px;
     --list-a-padding-h: 0;
     --list-a-padding-v: 16px;
     --list-a-size: 16px;
@@ -116,6 +134,7 @@
     --px-lg: 24px;
     --px-xlg: 32px;
     --space-sm: 12px;
+    --space-md: 16px;
     --side-padding: 24px;
     --tab-fsize: var(--font-size);
     --footer-height: 284px;
@@ -200,4 +219,10 @@ header {
   z-index: 100;
   position: sticky;
   width: 100%;
+}
+
+.heading-2 {
+  margin: var(--heading-2-margin);
+  font-size: var(--heading-2);
+  line-height: var(--line-height-sm);
 }
