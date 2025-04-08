@@ -20,12 +20,9 @@ export default function List(props: { list: IListItem[] }) {
 
   async function handleArrowButton(index: number) {
     setActiveItem(index === activeItem ? undefined : index);
+    setActiveStatus(Styles.ing);
     if (activeStatus === '') {
-      await setActiveStatus('ing');
-      const wait = (timeToDelay: number) =>
-        new Promise((resolve) => setTimeout(resolve, timeToDelay));
-      await wait(600);
-      await setActiveStatus('active');
+      setActiveStatus(Styles.active);
     } else {
       setActiveStatus('');
     }
@@ -33,33 +30,30 @@ export default function List(props: { list: IListItem[] }) {
 
   return (
     <ul className={Styles.list}>
-      {list &&
-        list?.map((item, index: number) => {
-          return (
-            <li
-              key={`${item.id}-${index}-li`}
-              className={`${index === activeItem ? Styles.active : ''}`}
-            >
-              <h4 className={Styles.q}>
-                <button onClick={() => handleArrowButton(index)}>
-                  <em>{item.categoryName}</em>
-                  <strong>{item.question}</strong>
-                  <Image
-                    src={'/ic_arrow.svg'}
-                    alt="더보기"
-                    width={32}
-                    height={32}
-                  />
-                </button>
-              </h4>
-              {index === activeItem && (
-                <div className={Styles.a}>
-                  <div dangerouslySetInnerHTML={{ __html: item.answer }} />
-                </div>
-              )}
-            </li>
-          );
-        })}
+      {list?.map((item, index: number) => {
+        return (
+          <li
+            key={`${item.id}-${index}-li`}
+            className={`${index === activeItem ? activeStatus : ''}`}
+          >
+            <h4 className={Styles.q}>
+              <button onClick={() => handleArrowButton(index)}>
+                <em>{item.categoryName}</em>
+                <strong>{item.question}</strong>
+                <Image
+                  src={'/ic_arrow.svg'}
+                  alt="더보기"
+                  width={32}
+                  height={32}
+                />
+              </button>
+            </h4>
+            <div className={Styles.a}>
+              <div dangerouslySetInnerHTML={{ __html: item.answer }} />
+            </div>
+          </li>
+        );
+      })}
     </ul>
   );
 }

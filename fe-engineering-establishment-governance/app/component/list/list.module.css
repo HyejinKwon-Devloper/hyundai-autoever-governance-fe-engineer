@@ -84,8 +84,15 @@
   }
 }
 
-.list li > .a {
-  transition: height 0.6s var(--cubic-bezier-primary);
+.list > li:not(.active):not(.ing) > .a {
+  max-height: 0;
+  transition: max-height 0.6s ease-out;
+}
+
+.a {
+  max-height: 500px;
+  transition: max-height 0.6s ease-in;
+  overflow: hidden;
 }
 
 .list li > .a > div {
