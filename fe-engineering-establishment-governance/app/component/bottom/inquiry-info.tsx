@@ -1,5 +1,6 @@
-import Styles from '@/app/component/bottom/bottom.module.css';
 import LargeIconButton from '@/app/component/button/LargeIconButton';
+
+import Styles from '@/app/component/bottom/bottom.module.css';
 
 export default function InquiryInfo() {
   return (

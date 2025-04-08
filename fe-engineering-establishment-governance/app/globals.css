@@ -33,6 +33,7 @@
     --ic-sm: 24px;
     --ic-md: 32px;
     --ic-lg: 48px;
+    --ic-xlg: 56px;
     --list-a-padding-h: 24px;
     --list-a-padding-v: 24px;
     --list-a-size: 20px;
@@ -64,6 +65,7 @@
     --ic-sm: 24px;
     --ic-md: 32px;
     --ic-lg: 48px;
+    --ic-xlg2: 56px;
     --list-a-padding-h: 20px;
     --list-a-padding-v: 18px;
     --list-a-size: 18px;
@@ -95,6 +97,7 @@
     --ic-sm: 24px;
     --ic-md: 28px;
     --ic-lg: 32px;
+    --ic-xlg: 48px;
     --list-a-padding-h: 24px;
     --list-a-padding-v: 24px;
     --list-a-size: 20px;
@@ -126,6 +129,7 @@
     --ic-sm: 20px;
     --ic-md: 24px;
     --ic-lg: 32px;
+    --ic-xlg: 40px;
     --list-a-padding-h: 0;
     --list-a-padding-v: 16px;
     --list-a-size: 16px;

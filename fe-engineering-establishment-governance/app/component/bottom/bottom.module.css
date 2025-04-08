@@ -1,3 +1,4 @@
+/* inquiry-info  */
 .inquiry {
   display: flex;
   margin: 0 calc(-1 * var(--space-md) / 2);
@@ -25,5 +26,89 @@
   .inquiry > a:last-child {
     min-width: calc(100% - var(--space-md));
     margin-top: var(--space-md);
+  }
+}
+/* process-info */
+.process {
+  display: flex;
+  margin: 0 calc(-1 * var(--space-md) / 2);
+  counter-reset: li;
+  line-height: var(--line-height-sm);
+}
+.process > li {
+  flex: 1;
+  margin: 0 calc(var(--space-md) / 2);
+  padding: 0 0 0 24px;
+}
+.process > li > span {
+  position: relative;
+  display: block;
+}
+.process li:not(:first-child) > span:before {
+  content: '';
+  position: absolute;
+  left: -36px;
+  top: 0;
+  background: url('/ic_step_arrow.svg') no-repeat;
+  width: 24px;
+  height: 24px;
+  background-size: auto 100%;
+}
+.process > li > img {
+  display: block;
+  width: var(--ic-xlg);
+  height: var(--ic-xlg);
+  margin-bottom: 8px;
+}
+.process > li > span > strong {
+  display: block;
+  font-size: 18px;
+}
+.process > li > span > strong:before {
+  content: counter(li) '. ';
+  counter-increment: li;
+}
+.process > li > span > em {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--gray-700);
+}
+@media (max-width: 1023px) {
+  .process {
+    flex-direction: column;
+  }
+  .process > li {
+    display: flex;
+    padding: 0 !important;
+  }
+  .process > li:not(:first-child) > span:before {
+    display: none;
+  }
+  .process > li > span > em {
+    max-width: none !important;
+  }
+}
+@media (max-width: 743px) {
+  .process > li:not(:first-child) {
+    margin-top: 20px;
+  }
+  .process > li > img {
+    margin: 0 12px 0 0;
+  }
+  .process > li > span > strong {
+    font-size: 16px;
+  }
+  .process > li > span > em {
+    margin-top: 4px;
+    font-size: 14px;
+  }
+}
+@media (min-width: 744px) and (max-width: 1023px) {
+  .process > li:not(:first-child) {
+    margin-top: 24px;
+  }
+  .process > li > img {
+    margin: 0 16px 0 0;
   }
 }

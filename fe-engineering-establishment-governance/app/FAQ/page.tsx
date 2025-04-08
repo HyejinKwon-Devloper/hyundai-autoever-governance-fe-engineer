@@ -5,6 +5,7 @@ import Search from '@/app/component/search/Search';
 import Filter from '@/app/component/filter/Filter';
 import List from '@/app/component/list/List';
 import InquiryInfo from '@/app/component/bottom/inquiry-info';
+import ProcessInfo from '@/app/component/bottom/process-info';
 import { searchFAQ } from '@/app/api/faq/route';
 
 async function FAQList() {
@@ -25,6 +26,7 @@ export default async function FAQ() {
           </Tab>
         </div>
         <InquiryInfo />
+        <ProcessInfo />
       </main>
       <footer className={styles.footer}></footer>
     </div>
