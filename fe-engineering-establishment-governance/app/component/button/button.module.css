@@ -33,3 +33,81 @@
   background-color: #fff;
   border: 1px solid var(--midnight-900);
 }
+/* top 버튼 */
+.top {
+  z-index: 99;
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.top > .inner {
+  position: absolute;
+  right: 32px;
+  bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --size: 56px;
+  transform: scale3d(1);
+  transform-origin: 100% 100%;
+}
+.top > .inner > button {
+  position: relative;
+  pointer-events: all;
+  width: var(--size);
+  height: var(--size);
+  margin-top: 8px;
+  font-size: 0;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 28px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+  opacity: 1;
+  transition-property: width, height, margin, background-position, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: var(--cubic-bezier-primary);
+}
+.top > .inner > button:not(.active) {
+  transform: scale(0);
+  margin: 0;
+  background-position: 50% 100%;
+  opacity: 0;
+  transition-property: transform, margin, background-position, opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: var(--cubic-bezier-primary);
+}
+.top > .inner > button.active > img {
+  background-position: 50% 60%;
+  transition: all 0s;
+}
+
+@media (max-width: 743px) {
+  .top > .inner {
+    right: 16px;
+    bottom: 24px;
+    --size: 40px;
+  }
+  .top > .inner > button {
+    background-size: 20px;
+  }
+}
+@media (min-width: 744px) and (max-width: 1023px) {
+  .top > .inner {
+    right: 24px;
+    bottom: 32px;
+    --size: 48px;
+  }
+  .top > .inner > button {
+    background-size: 24px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .top > .inner {
+    right: 24px;
+    bottom: 32px;
+  }
+}

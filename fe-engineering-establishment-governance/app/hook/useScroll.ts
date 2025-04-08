@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react';
 export function useScroll(props: boolean) {
   const [state, dispatch] = useState<boolean>(props);
 
+  function handleScrollTop() {
+    const scrollEl = document.querySelector('body');
+    scrollEl?.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   useEffect(() => {
     const scrollEl = document.querySelector('body');
     if (!scrollEl) return;
@@ -20,5 +25,5 @@ export function useScroll(props: boolean) {
     scrollEl.addEventListener('scroll', onScroll);
     return () => scrollEl.removeEventListener('scroll', onScroll);
   }, []);
-  return { state };
+  return { state, handleScrollTop };
 }
