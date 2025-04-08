@@ -1,10 +1,9 @@
 'use client';
 import Image from 'next/image';
 
-import { MouseEventHandler, useState } from 'react';
+import { useState } from 'react';
 
 import Styles from '@/app/component/list/list.module.css';
-import { defaultMaxListeners } from 'events';
 
 interface IListItem {
   id: number;
