@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
 import Header from '@/app/component/appbar/AppBar';
-import MSWBootstrap from '@/app/MSWBootstrap';
+import Container from '@/app/Container';
 import Footer from '@/app/component/footer/Footer';
 
 import { server } from '@/app/mocks/server';
@@ -34,9 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        <MSWBootstrap>
-          <div className="container">{children}</div>
-        </MSWBootstrap>
+        <Container>{children}</Container>
         <Footer />
       </body>
     </html>
