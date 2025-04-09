@@ -1,0 +1,170 @@
+.backdrop {
+  position: absolute;
+  min-width: 320px;
+  max-width: calc(100% - var(--side-padding) * 2);
+  max-height: calc(100% - var(--side-padding) * 2);
+  background: #ffffff;
+  overflow-y: scroll;
+}
+
+@keyframes dialog-backdrop-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.backdrop:not([closing]) {
+  animation: dialog-backdrop-show 0.4s;
+}
+
+.dialog-wrapper {
+  --padding: 32px;
+  padding: 0 var(--padding);
+}
+.dialog-wrapper.dialog-policy {
+  display: flex;
+  flex-direction: column;
+  width: 960px;
+  height: 100%;
+}
+
+.dialog-wrapper .dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 16px;
+  border-bottom: 2px solid var(--midnight-900);
+}
+.dialog-wrapper .dialog-header > h4 {
+  flex: 1;
+  font-size: 20px;
+  margin: 0.4em 1em 0.4em 0;
+}
+.dialog-wrapper .dialog-body {
+  --padding-top: 12px;
+  padding: var(--padding-top) 0 var(--padding);
+}
+
+.dialog-body {
+  --padding-top: 12px;
+  padding: var(--padding-top) 0 var(--padding);
+}
+.dialog-body .btn-xlg {
+  min-width: 7.5em;
+  height: 52px;
+  font-size: 18px;
+}
+.dialog-body .message {
+  text-align: center;
+  line-height: var(--line-height-md);
+  word-break: keep-all;
+}
+.policy-top {
+  margin-bottom: var(--padding-top);
+  text-align: right;
+}
+.dialog-wrapper.dialog-error .dialog-header {
+  border-bottom: none;
+}
+.dialog-wrapper.dialog-error .dialog-body {
+  --padding-top: 8px;
+  padding-left: var(--padding);
+  padding-right: var(--padding);
+}
+.dialog-wrapper.dialog-error .button-group {
+  margin-top: var(--px-md);
+}
+
+@media (max-width: 1060px) {
+  .dialog-wrapper {
+    --padding: 20px;
+    width: auto !important;
+  }
+  .dialog-header {
+    padding-top: 4px;
+  }
+  .dialog-header > h4 {
+    font-size: 16px;
+  }
+  .dialog-body .btn-xlg {
+    height: 48px;
+    font-size: 16px;
+  }
+  .dialog-wrapper.dialog-error .dialog-body {
+    --padding-top: 0;
+  }
+  .dialog-policy .policy-top > select {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .dialog-header > .close {
+    width: 28px;
+    height: 28px;
+    background-size: auto 28px;
+  }
+}
+@media (min-width: 1440px) {
+  .dialog-wrapper {
+    --padding: 40px;
+  }
+  .dialog-wrapper .dialog-header > h4 {
+    font-size: 24px;
+  }
+  .dialog-wrapper .dialog-header > .close {
+    width: 32px;
+    height: 32px;
+    background-size: auto 32px;
+    cursor: pointer;
+  }
+  .dialog-wrapper .body {
+    --padding-top: 16px;
+  }
+}
+
+.dialog-policy .policy-top + div {
+  flex: 1;
+  overflow-y: auto;
+}
+@media (hover: hover) and (pointer: fine) {
+  .dialog-policy .policy-top + div {
+    padding-right: 8px;
+  }
+}
+.dialog-policy .policy-top + div * {
+  font-size: 12px !important;
+  line-height: var(--line-height-sm) !important;
+  text-indent: 0 !important;
+  word-break: break-all !important;
+}
+.dialog-policy .policy-top + div p {
+  margin-bottom: 8px;
+}
+.dialog-policy .policy-top + div table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+.dialog-policy .policy-top + div table * {
+  font-size: 10px !important;
+}
+.dialog-policy .policy-top + div th,
+.dialog-policy .policy-top + div td {
+  padding: 4px;
+  border: 1px solid var(--gray-100);
+}
+@media (min-width: 744px) and (max-width: 1439px) {
+  .dialog-policy .policy-top + div *,
+  .dialog-policy .policy-top + div table * {
+    font-size: 14px !important;
+  }
+}
+@media (min-width: 1440px) {
+  .dialog-policy .policy-top + div *,
+  .dialog-policy .policy-top + div table * {
+    font-size: 16px !important;
+  }
+}
