@@ -8,22 +8,26 @@ interface ICategory {
   name: string;
 }
 
-export default function Filter(props: { category: string }) {
-  const [checked, setCheckValue] = useState('');
+export default function Filter(props: {
+  tab: string;
+  current: string;
+  handleCategory: (value: string) => void;
+}) {
+  const { current, handleCategory, tab } = props;
   const [categoriesOfTab, setCategories] = useState<ICategory[]>([]);
-  const { category } = props;
 
   useEffect(() => {
     async function fetchCategory() {
-      const data = await categories(category);
+      const data = await categories(tab);
       const result = [{ categoryID: '', name: '전체' }, ...data];
       setCategories(result);
+      handleCategory('');
     }
     fetchCategory();
-  }, [category]);
+  }, [tab]);
 
   function handleCheckedCategory(value: string) {
-    setCheckValue(value);
+    handleCategory(value);
   }
 
   return (
@@ -40,7 +44,7 @@ export default function Filter(props: { category: string }) {
                   name="category"
                   value={category.categoryID}
                   onChange={() => handleCheckedCategory(category.categoryID)}
-                  checked={checked === category.categoryID}
+                  checked={current === category.categoryID}
                 />
                 <i>{category.name}</i>
               </label>
