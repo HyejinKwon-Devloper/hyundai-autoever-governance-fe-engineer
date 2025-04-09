@@ -65,7 +65,6 @@ export default function TermsDialog(props: IDialog) {
   }, [termsDates, selectedOption]);
 
   function handleOption(e: React.ChangeEvent<HTMLSelectElement>) {
-    console.log('index');
     setOption(parseInt(e?.currentTarget.value || '0'));
   }
   return (
@@ -94,7 +93,8 @@ export default function TermsDialog(props: IDialog) {
                 {termsDates?.map((termsDates, index) => {
                   return (
                     <option key={`${index}-option`} value={index}>
-                      {timestampToYYYYMMDD(termsDates.startDate, '.')} -{' '}
+                      {timestampToYYYYMMDD(termsDates.startDate, '.')}
+                      {' ~ '}
                       {timestampToYYYYMMDD(termsDates.endDate, '.') || '현재'}
                     </option>
                   );
