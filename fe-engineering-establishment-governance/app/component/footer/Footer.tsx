@@ -1,11 +1,49 @@
+'use client';
 import Link from 'next/link';
 import Button from '@/app/component/button/Button';
+import { getTerms } from '@/app/api/terms/route';
+import TermsDialog from '@/app/component/dialog/TermsDialog';
+
+import { useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import Style from '@/app/component/footer/footer.module.css';
 
+interface ITerms {
+  terms: [
+    {
+      termsName: string;
+      termsVersion: number;
+      startDate: number;
+      endDate: number;
+      contents: string;
+    },
+  ];
+}
 export default function Footer() {
+  const [terms, setTerms] = useState<ITerms>();
+  const [isOpend, setOpend] = useState<boolean>(false);
+
+  async function handleJoinServiceUse() {
+    const data = await getTerms('JOIN_SERVICE_USE');
+    setTerms(data);
+    setOpend(true);
+  }
+
+  function handleDialog() {
+    setOpend((prev) => !prev);
+  }
   return (
     <footer>
+      {isOpend &&
+        createPortal(
+          <TermsDialog
+            title={'이용약관'}
+            contents={terms}
+            handleDialog={handleDialog}
+          />,
+          document.body,
+        )}
       <div className={Style.inner}>
         <div className={Style.information}>
           <span className={Style.util}>
@@ -15,7 +53,7 @@ export default function Footer() {
             >
               <b>개인정보 처리방침</b>
             </Link>
-            <Button>이용약관</Button>
+            <Button onClick={handleJoinServiceUse}>이용약관</Button>
           </span>
           <address className={Style.address}>
             <span>
