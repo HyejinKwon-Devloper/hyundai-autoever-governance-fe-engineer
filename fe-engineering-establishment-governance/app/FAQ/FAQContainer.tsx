@@ -4,7 +4,7 @@ import Search from '@/app/component/search/Search';
 import Filter from '@/app/component/filter/Filter';
 import List from '@/app/component/list/List';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useReducer, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 import { searchFAQ } from '@/app/api/faq/route';
@@ -32,6 +32,13 @@ interface ICategory {
   categoryID: string;
   name: string;
 }
+
+interface actionType {
+  type: 'initialize' | 'change';
+  activeStatus: '' | 'active';
+  activeItem: undefined | number;
+}
+
 export default function FAQContainer() {
   const tabList = [
     { id: 'CONSULT', name: '서비스 이용' },
@@ -40,9 +47,13 @@ export default function FAQContainer() {
   const [selectedTab, setTab] = useState<string>('CONSULT');
   const [category, setCategory] = useState<string>('');
   const [question, setQuestion] = useState<string | undefined>('');
+  const [state, dispatch] = useReducer(reducer, {
+    activeStatus: '',
+    activeItem: undefined,
+  });
 
-  const searchData = useQuery<ISearchFAQ>({
-    queryKey: ['faq-dashboard', selectedTab, category, question],
+  const searchData = useQuery({
+    queryKey: ['faq-dashboard', selectedTab, category],
     queryFn: () => searchFAQ(selectedTab, category),
     staleTime: 1000,
   });
@@ -52,11 +63,6 @@ export default function FAQContainer() {
     queryFn: () => getCategories(selectedTab),
     staleTime: 1000,
   });
-
-  useEffect(() => {
-    handleCategory('');
-    handleSetQuestion('');
-  }, [selectedTab]);
 
   const categoriesOfTab = useMemo(() => {
     if (categories.data) {
@@ -69,11 +75,57 @@ export default function FAQContainer() {
   }
   function handleCategory(checked: string) {
     setCategory(checked);
+    dispatch({ type: 'initialize', activeItem: undefined, activeStatus: '' });
   }
 
   function handleSetQuestion(question: string) {
     setQuestion(question);
   }
+
+  function handleArrowButton(index?: number) {
+    if (state.activeItem !== undefined) {
+      dispatch({
+        type: 'change',
+        activeItem: index === state.activeItem ? undefined : index,
+        activeStatus:
+          index === state.activeItem
+            ? state.activeStatus === 'active'
+              ? ''
+              : 'active'
+            : 'active',
+      });
+    } else {
+      dispatch({
+        type: 'change',
+        activeItem: index,
+        activeStatus: 'active',
+      });
+    }
+  }
+
+  function reducer(
+    state: { activeItem?: number; activeStatus: string },
+    action: actionType,
+  ) {
+    if (action.type === 'initialize') {
+      return {
+        activeItem: undefined,
+        activeStatus: '',
+      };
+    } else {
+      return {
+        ...state,
+        activeItem: action.activeItem,
+        activeStatus: action.activeStatus,
+      };
+    }
+  }
+
+  useEffect(() => {
+    handleCategory('');
+    handleSetQuestion('');
+    dispatch({ type: 'initialize', activeItem: undefined, activeStatus: '' });
+  }, [selectedTab]);
 
   return (
     <div>
@@ -89,7 +141,12 @@ export default function FAQContainer() {
           current={category}
           handleCategory={handleCategory}
         />
-        <List faqList={searchData.data?.items} />
+        <List
+          faqList={searchData.data?.items}
+          activeStatus={state.activeStatus}
+          activeItem={state.activeItem}
+          handleArrowButton={handleArrowButton}
+        />
       </Tab>
     </div>
   );

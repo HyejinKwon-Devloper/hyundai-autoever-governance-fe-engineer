@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import { useState, Suspense } from 'react';
+import { useMemo, Suspense } from 'react';
 
 import styles from '@/app/component/list/list.module.css';
 
@@ -12,31 +12,27 @@ interface IListItem {
   question: string;
   answer: string;
 }
-export default function List(props: { faqList?: IListItem[] }) {
-  const { faqList } = props;
-  const [activeStatus, setActiveStatus] = useState<string>('');
-  const [activeItem, setActiveItem] = useState<number>();
+export default function List(props: {
+  activeStatus: string;
+  handleArrowButton: (index: number) => void;
+  faqList?: IListItem[];
+  activeItem?: number;
+}) {
+  const { faqList, activeItem, activeStatus, handleArrowButton } = props;
 
-  function handleArrowButton(index: number) {
-    setActiveItem(index === activeItem ? undefined : index);
-    setActiveStatus(styles.ing);
-    setActiveStatus(activeStatus === '' ? styles.active : '');
-  }
-  return (
-    <Suspense fallback={<p>Loading...</p>}>
-      {faqList && faqList.length > 0 ? (
+  const faqs = useMemo(() => {
+    return (
+      faqList &&
+      faqList.length > 0 && (
         <ul className={styles.list}>
           {faqList.map((item, index: number) => {
             return (
               <li
                 key={`${item.id}-${index}-li`}
-                className={`${index === activeItem ? activeStatus : ''}`}
+                className={`${index === activeItem ? styles[activeStatus] : ''}`}
               >
                 <h4 className={styles.q}>
-                  <button
-                    key={`${index}-button`}
-                    onClick={() => handleArrowButton(index)}
-                  >
+                  <button onClick={() => handleArrowButton(index)}>
                     <em>{item.subCategoryName}</em>
                     <strong>{item.question}</strong>
                     <Image
@@ -54,6 +50,14 @@ export default function List(props: { faqList?: IListItem[] }) {
             );
           })}
         </ul>
+      )
+    );
+  }, [faqList, activeItem, activeStatus]);
+
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      {faqs ? (
+        faqs
       ) : (
         <div className={styles['no-data']}>
           <Image src="/ic_nodata.svg" alt="nodata" width={64} height={64} />

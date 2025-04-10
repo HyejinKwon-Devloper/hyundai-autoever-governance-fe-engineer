@@ -42,13 +42,8 @@ export default function Search(props: {
             placeholder="찾으시는 내용을 입력해 주세요"
             onChange={handleInputChange}
           />
-          <input name="tab" defaultValue={tab} value={tab} hidden />
-          <input
-            name="faqCategoryId"
-            defaultValue={faqCategoryId}
-            value={faqCategoryId}
-            hidden
-          />
+          <input name="tab" defaultValue={tab} hidden />
+          <input name="faqCategoryId" defaultValue={faqCategoryId} hidden />
           {question && (
             <button type="reset" className={styles.clear} onClick={resetInput}>
               다시입력
