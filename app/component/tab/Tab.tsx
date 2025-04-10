@@ -1,6 +1,5 @@
 'use client';
 import Button from '@/app/component/button/Button';
-import { useState } from 'react';
 
 import styles from '@/app/component/tab/tab.module.css';
 
@@ -10,14 +9,15 @@ interface ITabItem {
 }
 interface ITab {
   tabList: ITabItem[];
+  currentTab: string;
+  handleTab: (selectedTab: string) => void;
   children?: React.ReactNode;
 }
 export default function Tab(props: ITab) {
-  const { tabList, children } = props;
-  const [currentTab, setActiveTab] = useState<string>(tabList[0].id);
+  const { tabList, currentTab, handleTab, children } = props;
 
   function handleActiveTab(id: string) {
-    setActiveTab(id);
+    handleTab(id);
   }
   return (
     <div className={styles.tabArea}>

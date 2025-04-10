@@ -56,3 +56,31 @@
   height: calc(100% - 2px);
   font-size: 0;
 }
+
+.search-info {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--px-md) 0;
+}
+.search-info > .heading-info {
+  margin: 0;
+}
+.search-info > .init {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  font-size: 16px;
+}
+.search-info > img {
+  content: '';
+  width: var(--ic-sm);
+  height: var(--ic-sm);
+  margin-right: 2px;
+  background-size: auto 100%;
+}
+@media (max-width: 743px) {
+  .search-info > .init {
+    padding: 0 2px;
+    font-size: 14px;
+  }
+}

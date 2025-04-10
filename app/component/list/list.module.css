@@ -102,3 +102,24 @@
   overflow-x: scroll;
   padding: var(--list-q-padding);
 }
+
+.no-data {
+  border-top: 2px solid var(--midnight-900);
+  padding: var(--space-box2) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--gray-200);
+}
+.no-data > img {
+  display: block;
+  content: '';
+  width: var(--ic-xlg2);
+  height: var(--ic-xlg2);
+  margin: 0 auto var(--space-xsm2);
+  background-size: auto 100%;
+}
+.no-data > p {
+  margin-top: var(--space-xsm);
+  line-height: var(--line-height-md);
+  color: var(--gray-500);
+  word-break: keep-all;
+}
