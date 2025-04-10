@@ -57,7 +57,7 @@ async function searchFAQuestion(prevState: any, queryData: any) {
   }
 }
 
-async function categories(tab: string) {
+async function getCategories(tab: string) {
   const params = { tab };
   const queryString = new URLSearchParams(params).toString();
 
@@ -84,4 +84,4 @@ async function categories(tab: string) {
   }
 }
 
-export { searchFAQ, categories, searchFAQuestion };
+export { searchFAQ, getCategories, searchFAQuestion };

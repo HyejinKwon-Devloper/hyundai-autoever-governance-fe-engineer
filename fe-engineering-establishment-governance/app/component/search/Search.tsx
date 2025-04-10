@@ -2,68 +2,43 @@
 import Image from 'next/image';
 import Form from 'next/form';
 
-import { ChangeEvent, useActionState, useEffect, useState } from 'react';
+import { ChangeEvent, useActionState } from 'react';
 
 import styles from '@/app/component/search/search.module.css';
 
 import { searchFAQuestion } from '@/app/api/faq/route';
 
-interface ISearchFAQ {
-  pageInfo: {
-    totalRecord: number;
-    offset: number;
-    limit: number;
-    prevOffset: number;
-    nextOffset: number;
-  };
-  items: [
-    {
-      id: number;
-      categoryName: string;
-      subCategoryName: string;
-      question: string;
-      answer: string;
-    },
-  ];
-}
-export default function Search(props: { tab: string; faqCategoryId: string }) {
-  const { tab, faqCategoryId } = props;
+export default function Search(props: {
+  tab: string;
+  faqCategoryId: string;
+  question?: string;
+  handleSetQuestion: (question: string) => void;
+}) {
+  const { tab, faqCategoryId, question, handleSetQuestion } = props;
   const [state, formAction, pending] = useActionState(searchFAQuestion, {
     tab,
     faqCategoryId,
   });
-  const [searchInput, setInput] = useState<string | undefined>('');
-  const [isSubmit, setSubmit] = useState<boolean>(false);
 
   function handleInputChange(e?: ChangeEvent<HTMLInputElement>) {
     if (e?.target.value) {
-      setInput(e.target.value);
+      handleSetQuestion(e.target.value);
     } else {
-      setInput('');
-      setSubmit(false);
+      handleSetQuestion('');
     }
   }
   function resetInput() {
-    setInput('');
-    setSubmit(false);
+    handleSetQuestion('');
   }
-  function handleSubmit(formData: FormData) {
-    setSubmit(true);
-    formAction(formData);
-  }
-
-  useEffect(() => {
-    resetInput();
-  }, [tab]);
 
   return (
     <>
-      <Form action={handleSubmit} className={styles.search}>
+      <Form action={formAction} className={styles.search}>
         <div className={styles.inputWrap}>
           <input
             type="text"
             name="question"
-            value={searchInput}
+            value={question}
             placeholder="찾으시는 내용을 입력해 주세요"
             onChange={handleInputChange}
           />
@@ -74,7 +49,7 @@ export default function Search(props: { tab: string; faqCategoryId: string }) {
             value={faqCategoryId}
             hidden
           />
-          {searchInput && (
+          {question && (
             <button type="reset" className={styles.clear} onClick={resetInput}>
               다시입력
               <Image
@@ -92,7 +67,7 @@ export default function Search(props: { tab: string; faqCategoryId: string }) {
           </button>
         </div>
       </Form>
-      {state?.pageInfo && isSubmit && (
+      {state?.pageInfo && question && (
         <div className={styles['search-info']}>
           <h2 className={styles['heading-info']}>
             검색결과 총 <em>{state?.pageInfo.totalRecord}</em>건

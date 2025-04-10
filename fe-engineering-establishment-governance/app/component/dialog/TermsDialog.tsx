@@ -3,7 +3,7 @@ import { useState, useCallback, useMemo } from 'react';
 
 import Button from '@/app/component/button/Button';
 
-import { timestampToYYYYMMDD } from '@/app/util/date';
+import { timestampToYYYYMMDD } from '@/app/utils/date';
 
 import styles from '@/app/component/dialog/dialog.module.css';
 interface ITerms {

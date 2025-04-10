@@ -1,8 +1,7 @@
 'use client';
 import Image from 'next/image';
 
-import { useState, useEffect } from 'react';
-import { searchFAQ } from '@/app/api/faq/route';
+import { useState, Suspense } from 'react';
 
 import styles from '@/app/component/list/list.module.css';
 
@@ -13,29 +12,19 @@ interface IListItem {
   question: string;
   answer: string;
 }
-export default function List(props: { tab: string; categoryId?: string }) {
-  const { tab, categoryId } = props;
+export default function List(props: { faqList?: IListItem[] }) {
+  const { faqList } = props;
   const [activeStatus, setActiveStatus] = useState<string>('');
   const [activeItem, setActiveItem] = useState<number>();
-  const [faqList, setFAQList] = useState<IListItem[]>([]);
 
-  async function handleArrowButton(index: number) {
+  function handleArrowButton(index: number) {
     setActiveItem(index === activeItem ? undefined : index);
     setActiveStatus(styles.ing);
     setActiveStatus(activeStatus === '' ? styles.active : '');
   }
-
-  useEffect(() => {
-    async function fetchFAQList() {
-      const data = await searchFAQ(tab, categoryId);
-      setFAQList(data?.items);
-    }
-    fetchFAQList();
-  }, [tab, categoryId]);
-
   return (
-    <>
-      {faqList?.length > 0 ? (
+    <Suspense fallback={<p>Loading...</p>}>
+      {faqList && faqList.length > 0 ? (
         <ul className={styles.list}>
           {faqList.map((item, index: number) => {
             return (
@@ -71,6 +60,6 @@ export default function List(props: { tab: string; categoryId?: string }) {
           <p>검색결과가 없습니다.</p>
         </div>
       )}
-    </>
+    </Suspense>
   );
 }
