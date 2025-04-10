@@ -1,4 +1,3 @@
-'use server';
 async function getTerms(termsId: string) {
   const params = { termsClassID: termsId };
 

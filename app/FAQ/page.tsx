@@ -8,7 +8,7 @@ import styles from '@/app/FAQ/page.module.css';
 import type { Metadata } from 'next';
 import { getDehydratedQuery, Hydrate } from '../utils/dehydrate';
 
-import { getCategories, searchFAQ } from '@/app/api/faq/route';
+import { getCategories, searchFAQ } from '@/app/api/faq/request';
 
 export const metadata: Metadata = {
   title: '서비스 도입 FAQ | 기아 비즈(Kia Biz) - 친환경 모빌리티 서비스',
