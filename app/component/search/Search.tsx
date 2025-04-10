@@ -6,7 +6,7 @@ import { ChangeEvent, useActionState } from 'react';
 
 import styles from '@/app/component/search/search.module.css';
 
-import { searchFAQuestion } from '@/app/api/faq/route';
+import { searchFAQuestion } from '@/app/api/faq/request';
 
 export default function Search(props: {
   tab: string;

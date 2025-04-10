@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import Button from '@/app/component/button/Button';
-import { getTerms } from '@/app/api/terms/route';
+import { getTerms } from '@/app/api/terms/request';
 import TermsDialog from '@/app/component/dialog/TermsDialog';
 
 import { useState } from 'react';

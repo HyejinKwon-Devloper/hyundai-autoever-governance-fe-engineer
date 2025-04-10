@@ -1,5 +1,3 @@
-'use server';
-
 async function searchFAQ(tab: string, categoryId?: string, question?: string) {
   let params = { limit: '10', offset: '0', tab };
 
