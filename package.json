@@ -1,0 +1,39 @@
+{
+  "name": "fe-engineering-establishment-governance",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "^5.72.1",
+    "@tanstack/react-query-devtools": "^5.72.2",
+    "@tanstack/react-query-next-experimental": "^5.72.2",
+    "next": "15.2.4",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tanstack/eslint-plugin-query": "^5.72.1",
+    "@titicaca/eslint-config-triple": "^5.3.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.26",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-prettier": "^5.2.6",
+    "msw": "^2.7.3",
+    "prettier": "^3.5.3",
+    "typescript": "^5"
+  },
+  "msw": {
+    "workerDirectory": [
+      "./public"
+    ]
+  }
+}

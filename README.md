@@ -1,8 +1,19 @@
-# 개발/운영 및 Governance 체계 수립
-[FE Engineering] 개발/운영 및 Governance 체계 수립 
+## Getting Started
 
-#시작하기
+First, run the development server:
 
 ```bash
-$cd fe-engineering-establishment-governance
-$npm run dev
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can show the FAQ page `app/page.tsx`.
+
+## Deploy on Vercel
