@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 const handlers = [
-  http.get(`${process.env.NEXT_BASE_URL}/api/faq`, ({ request }) => {
+  http.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/faq`, ({ request }) => {
     const url = new URL(request.url);
     const question = url.searchParams.get('question');
     const tab = url.searchParams.get('tab');
@@ -188,7 +188,7 @@ const handlers = [
       }
     }
   }),
-  http.get(`${process.env.NEXT_BASE_URL}/api/faq/category`, ({ request }) => {
+  http.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/faq/category`, ({ request }) => {
     const url = new URL(request.url);
     const tab = url.searchParams.get('tab');
     if (request.url.includes('category')) {
