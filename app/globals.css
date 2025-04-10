@@ -37,6 +37,7 @@
     --ic-md: 32px;
     --ic-lg: 48px;
     --ic-xlg: 56px;
+    --ic-xlg2: 64px;
     --input-md: 56px;
     --input-md-fsize: 18px;
     --list-a-padding-h: 24px;
@@ -46,6 +47,8 @@
     --px-md: 24px;
     --px-lg: 48px;
     --px-xlg: 76px;
+    --space-box2: 160px;
+    --space-xsm2: 16px;
     --space-sm: 20px;
     --space-sm2: 20px;
     --space-md: 32px;
@@ -81,6 +84,8 @@
     --px-md: 20px;
     --px-lg: 40px;
     --px-xlg: 64px;
+    --space-box2: 160px;
+    --space-xsm2: 16px;
     --space-sm: 20px;
     --space-sm2: 16px;
     --space-md: 24px;
@@ -107,6 +112,7 @@
     --ic-md: 28px;
     --ic-lg: 32px;
     --ic-xlg: 48px;
+    --ic-xlg2: 48px;
     --input-md: 48px;
     --input-md-fsize: 16px;
     --list-a-padding-h: 24px;
@@ -116,6 +122,8 @@
     --px-md: 16px;
     --px-lg: 32px;
     --px-xlg: 56px;
+    --space-box2: 120px;
+    --space-xsm2: 12px;
     --space-sm: 14px;
     --space-sm2: 16px;
     --space-md: 24px;
@@ -142,6 +150,7 @@
     --ic-md: 24px;
     --ic-lg: 32px;
     --ic-xlg: 40px;
+    --ic-xlg2: 32px;
     --input-md: 40px;
     --input-md-fsize: 16px;
     --list-a-padding-h: 0;
@@ -151,6 +160,8 @@
     --px-md: 16px;
     --px-lg: 24px;
     --px-xlg: 32px;
+    --space-box2: 120px;
+    --space-xsm2: 8px;
     --space-sm: 12px;
     --space-sm2: 12px;
     --space-md: 16px;

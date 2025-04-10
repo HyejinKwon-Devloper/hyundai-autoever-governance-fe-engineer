@@ -1,29 +1,20 @@
 'use client';
 import Styles from '@/app/component/filter/filter.module.css';
-import { useState, useEffect, Suspense } from 'react';
-import { categories } from '@/app/api/faq/route';
+import { Suspense } from 'react';
 
 interface ICategory {
   categoryID: string;
   name: string;
 }
-
-export default function Filter(props: { category: string }) {
-  const [checked, setCheckValue] = useState('');
-  const [categoriesOfTab, setCategories] = useState<ICategory[]>([]);
-  const { category } = props;
-
-  useEffect(() => {
-    async function fetchCategory() {
-      const data = await categories(category);
-      const result = [{ categoryID: '', name: '전체' }, ...data];
-      setCategories(result);
-    }
-    fetchCategory();
-  }, [category]);
+export default function Filter(props: {
+  categoriesOfTab: ICategory[];
+  current: string;
+  handleCategory: (value: string) => void;
+}) {
+  const { current, handleCategory, categoriesOfTab } = props;
 
   function handleCheckedCategory(value: string) {
-    setCheckValue(value);
+    handleCategory(value);
   }
 
   return (
@@ -40,7 +31,7 @@ export default function Filter(props: { category: string }) {
                   name="category"
                   value={category.categoryID}
                   onChange={() => handleCheckedCategory(category.categoryID)}
-                  checked={checked === category.categoryID}
+                  checked={current === category.categoryID}
                 />
                 <i>{category.name}</i>
               </label>

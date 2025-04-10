@@ -6,6 +6,7 @@ import Container from '@/app/Container';
 import Footer from '@/app/component/footer/Footer';
 
 import { server } from '@/app/mocks/server';
+import { Providers } from '@/app/utils/provider';
 
 import '@/app/globals.css';
 
@@ -34,7 +35,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Header />
-        <Container>{children}</Container>
+        <Providers>
+          <Container>{children}</Container>
+        </Providers>
         <Footer />
       </body>
     </html>
