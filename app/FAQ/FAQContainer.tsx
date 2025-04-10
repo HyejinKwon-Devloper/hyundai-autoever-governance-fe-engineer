@@ -7,8 +7,8 @@ import List from '@/app/component/list/List';
 import { useEffect, useMemo, useReducer, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
-import { searchFAQ } from '@/app/api/faq/route';
-import { getCategories } from '@/app/api/faq/route';
+import { searchFAQ } from '@/app/api/faq/request';
+import { getCategories } from '@/app/api/faq/request';
 
 interface ISearchFAQ {
   pageInfo: {
