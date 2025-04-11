@@ -11,7 +11,7 @@ async function searchFAQ(tab: string, categoryId?: string, question?: string) {
   const queryString = new URLSearchParams(params).toString();
   try {
     const res = await fetch(
-      `${process.env.NEXT_BASE_URL}/api/faq?${queryString}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/faq?${queryString}`,
       {
         method: 'GET',
         headers: {
@@ -34,7 +34,7 @@ async function searchFAQ(tab: string, categoryId?: string, question?: string) {
 async function searchFAQuestion(prevState: any, queryData: any) {
   try {
     const res = await fetch(
-      `${process.env.NEXT_BASE_URL}/api/faq?${new URLSearchParams(queryData).toString()}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/faq?${new URLSearchParams(queryData).toString()}`,
       {
         method: 'GET',
         headers: {
@@ -61,7 +61,7 @@ async function getCategories(tab: string) {
 
   try {
     const res = await fetch(
-      `${process.env.NEXT_BASE_URL}/api/faq/category?${queryString}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/faq/category?${queryString}`,
       {
         method: 'GET',
         headers: {
