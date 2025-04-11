@@ -22,8 +22,8 @@ export default function LargeIconButton(props: ILargeIconButton) {
       rel={rel}
       download={download}
     >
-      {svg && <Image src={svg} width={48} height={48} alt={alt} />
-}      <span>{children}</span>
+      {svg && <Image src={svg} width={48} height={48} alt={alt} />}
+      <span>{children}</span>
     </a>
   );
 }
