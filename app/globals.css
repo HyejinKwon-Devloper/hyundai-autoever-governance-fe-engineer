@@ -38,6 +38,7 @@
     --ic-lg: 48px;
     --ic-xlg: 56px;
     --ic-xlg2: 64px;
+    --ic-xxlg: 96px;
     --input-md: 56px;
     --input-md-fsize: 18px;
     --list-a-padding-h: 24px;
@@ -75,6 +76,7 @@
     --ic-md: 32px;
     --ic-lg: 48px;
     --ic-xlg2: 56px;
+    --ic-xxlg: 80px;
     --input-md: 48px;
     --input-md-fsize: 14px;
     --list-a-padding-h: 20px;
@@ -113,6 +115,7 @@
     --ic-lg: 32px;
     --ic-xlg: 48px;
     --ic-xlg2: 48px;
+    --ic-xxlg: 80px;
     --input-md: 48px;
     --input-md-fsize: 16px;
     --list-a-padding-h: 24px;
@@ -151,6 +154,7 @@
     --ic-lg: 32px;
     --ic-xlg: 40px;
     --ic-xlg2: 32px;
+    --ic-xxlg: 64px;
     --input-md: 40px;
     --input-md-fsize: 16px;
     --list-a-padding-h: 0;
@@ -343,4 +347,44 @@ dialog {
 }
 dialog {
   animation: dialog-show 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+}
+.error-info {
+	--space: 160px;
+	padding: var(--space) var(--side-padding) calc(var(--space) - var(--bottom-padding));
+	text-align: center;
+	word-break: keep-all;
+}
+.error-img{
+	content: '';
+	display: block;
+	width: var(--ic-xxlg);
+	height: var(--ic-xxlg);
+	margin: 0 auto var(--space-md);
+	background-size: auto 100%;
+}
+.error-info > strong {
+	font-size: var(--space-md2);
+	line-height: 1.3;
+}
+.error-info > p {
+	margin-top: var(--space-xsm);
+	line-height: var(--line-height-md);
+}
+@media (max-width: 743px) {
+	.error-info {
+		--space: 80px;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.error-info {
+		--space: 80px;
+	}
+}
+
+/* Buttons */
+.button-group {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: var(--px-lg);
 }
