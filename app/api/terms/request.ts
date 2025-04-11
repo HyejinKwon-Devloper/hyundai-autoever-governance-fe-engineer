@@ -4,7 +4,7 @@ async function getTerms(termsId: string) {
   const queryString = new URLSearchParams(params).toString();
   try {
     const res = await fetch(
-      `${process.env.NEXT_BASE_URL}/terms?${queryString}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/terms?${queryString}`,
       {
         method: 'GET',
         headers: {
