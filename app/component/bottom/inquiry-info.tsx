@@ -15,7 +15,7 @@ export default function InquiryInfo() {
         >
           서비스 제안서 다운로드
         </LargeIconButton>
-        <LargeIconButton alt="write" href="/Counsel" svg="/ic_write.svg">
+        <LargeIconButton alt="write" href={`${process.env.NEXT_PUBLIC_PAGE_URL}/Counsel`} svg="/ic_write.svg">
           상담문의 등록하기
         </LargeIconButton>
         <LargeIconButton

@@ -5,7 +5,7 @@ export default function NavList(props: { handleNavMenu: () => void }) {
     <nav>
       <ul>
         <li>
-          <Link href={'/Guide'} onClick={handleNavMenu}>
+          <Link href={`${process.env.NEXT_PUBLIC_PAGE_URL}/Guide`} onClick={handleNavMenu}>
             서비스 소개
           </Link>
         </li>
@@ -15,12 +15,12 @@ export default function NavList(props: { handleNavMenu: () => void }) {
           </Link>
         </li>
         <li>
-          <Link href={'/News'} onClick={handleNavMenu}>
+          <Link href={`${process.env.NEXT_PUBLIC_PAGE_URL}/News`} onClick={handleNavMenu}>
             새소식
           </Link>
         </li>
         <li>
-          <Link href={'/Counsel'} onClick={handleNavMenu}>
+          <Link href={`${process.env.NEXT_PUBLIC_PAGE_URL}/Counsel`} onClick={handleNavMenu}>
             상담문의
           </Link>
         </li>
