@@ -6,7 +6,7 @@ import styles from '@/app/component/button/button.module.css';
 interface ILargeIconButton {
   alt: string;
   href: string;
-  svg: string;
+  svg?: string;
   children: React.ReactNode;
   target?: HTMLAttributeAnchorTarget | undefined;
   rel?: string;
@@ -22,7 +22,7 @@ export default function LargeIconButton(props: ILargeIconButton) {
       rel={rel}
       download={download}
     >
-      <Image src={svg} width={48} height={48} alt={alt} />
+      {svg && <Image src={svg} width={48} height={48} alt={alt} />}
       <span>{children}</span>
     </a>
   );
