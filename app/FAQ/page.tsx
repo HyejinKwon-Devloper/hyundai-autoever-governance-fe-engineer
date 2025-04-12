@@ -1,14 +1,13 @@
+import type { Metadata } from 'next';
+
 import PageDescription from '@/app/component/PageDescription';
 import FAQContainer from '@/app/FAQ/FAQContainer';
-import InquiryInfo from '@/app/component/bottom/inquiry-info';
-import ProcessInfo from '@/app/component/bottom/process-info';
-import AppInfo from '@/app/component/bottom/app-info';
-
-import styles from '@/app/FAQ/page.module.css';
-import type { Metadata } from 'next';
-import { getDehydratedQuery, Hydrate } from '../utils/dehydrate';
+import PageBottom from '@/app/component/bottom/PageBottom';
+import { getDehydratedQuery, Hydrate } from '@/app/utils/dehydrate';
 
 import { getCategories, searchFAQ } from '@/app/api/faq/request';
+
+import styles from '@/app/FAQ/page.module.css';
 
 export const metadata: Metadata = {
   title: '서비스 도입 FAQ | 기아 비즈(Kia Biz) - 친환경 모빌리티 서비스',
@@ -32,9 +31,7 @@ export default async function FAQ() {
         <Hydrate state={{ queries: [faq, categories] }}>
           <FAQContainer />
         </Hydrate>
-        <InquiryInfo />
-        <ProcessInfo />
-        <AppInfo />
+        <PageBottom />
       </main>
     </div>
   );
