@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Form from 'next/form';
 
-import { ChangeEvent, useActionState } from 'react';
+import { ChangeEvent, useActionState, useMemo, useState } from 'react';
 
 import styles from '@/app/component/search/search.module.css';
 
@@ -15,12 +15,14 @@ export default function Search(props: {
   handleSetQuestion: (question: string) => void;
 }) {
   const { tab, faqCategoryId, question, handleSetQuestion } = props;
+  const [isSubmitted, setSubmitted] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(searchFAQuestion, {
     tab,
     faqCategoryId,
   });
 
   function handleInputChange(e?: ChangeEvent<HTMLInputElement>) {
+    setSubmitted(false);
     if (e?.target.value) {
       handleSetQuestion(e.target.value);
     } else {
@@ -29,8 +31,28 @@ export default function Search(props: {
   }
   function resetInput() {
     handleSetQuestion('');
+    setSubmitted(false);
   }
 
+  const searchInfo = useMemo(() => {
+    return (
+      isSubmitted && state?.pageInfo && question && (
+        <div className={styles['search-info']}>
+          <h2 className={styles['heading-info']}>
+            검색결과 총 <em>{state?.pageInfo.totalRecord}</em>건
+          </h2>
+          <button type="button" className={styles['init']} onClick={resetInput}>
+            <Image src="ic_init.svg" width={24} height={24} alt="init" />
+            검색초기화
+          </button>
+        </div>
+      )
+    )
+  }, [tab, state, question])
+
+  function handleSumitButton(value: boolean){
+    setSubmitted(value);
+  }
   return (
     <>
       <Form action={formAction} className={styles.search}>
@@ -56,23 +78,13 @@ export default function Search(props: {
               />
             </button>
           )}
-          <button type="submit" disabled={pending} className={styles.submit}>
+          <button type="submit" onClick={() => handleSumitButton(true)}disabled={pending} className={styles.submit}>
             검색
             <Image src="/ic_search.svg" alt="search" width={24} height={24} />
           </button>
         </div>
       </Form>
-      {state?.pageInfo && question && (
-        <div className={styles['search-info']}>
-          <h2 className={styles['heading-info']}>
-            검색결과 총 <em>{state?.pageInfo.totalRecord}</em>건
-          </h2>
-          <button type="button" className={styles['init']} onClick={resetInput}>
-            <Image src="ic_init.svg" width={24} height={24} alt="init" />
-            검색초기화
-          </button>
-        </div>
-      )}
+      {searchInfo}
     </>
   );
 }
